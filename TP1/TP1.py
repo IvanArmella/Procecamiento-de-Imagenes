@@ -3,6 +3,7 @@ from tkinter import filedialog
 import numpy as np 
 import matplotlib.pyplot as plt
 import imageio.v2 as imageio
+from time import time
 
 class Interfaz:
     def __init__(self,ventana):
@@ -30,6 +31,7 @@ class Interfaz:
     def seleccionar(self):
         ruta=filedialog.askopenfilename(title="Seleccionar Imagen",filetypes=[("Imagenes", ".png")])
         if ruta[-4:]==".png":
+            self.ruta=ruta
             self.imagen=PhotoImage(file=ruta)
             self.lblImagen=Label(ventana,image=self.imagen,padx=5,pady=5)
             self.lblImagen.grid(row=1,columnspan=4)
@@ -46,21 +48,18 @@ class Interfaz:
         b=float(self.edtSaturacion.get())
         f=im.shape[0]
         c=im.shape[1]
-        for i in range(f):
-            for j in range(c):
-                im[i,j,:]=np.matmul(fRGB,im[i,j,:])
+        for i in range(f):      
+                im[i,:,:]=np.transpose(np.dot(fRGB,np.transpose(im[i,:,:])))
         im[:,:,0]=np.minimum(im[:,:,0]*a,1)
         im[:,:,1:]=np.clip(im[:,:,1:]*b,-0.5957,0.5957)
         for i in range(f):
-            for j in range(c):
-                im[i,j,:]=np.matmul(fYIQ,im[i,j,:])
+                im[i,:,:]=np.transpose(np.dot(fYIQ,np.transpose(im[i,:,:])))
         im[:,:,:]=np.clip(im[:,:,:]*255,0,255)
         im=im.astype(np.uint8)
         imageio.imwrite('a.png',im)
         self.imagen=PhotoImage(file="a.png")
         self.lblImagen=Label(ventana,image=self.imagen,padx=5,pady=5)
         self.lblImagen.grid(row=1,columnspan=4)
-
 
 ventana=Tk()
 programa=Interfaz(ventana)
