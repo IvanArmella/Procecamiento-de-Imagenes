@@ -18,7 +18,7 @@ class Programa(QtWidgets.QMainWindow):
         self.interfaz.setupUi(self)
         self.validadorFloat(self.interfaz.edtLuminancia)
         self.validadorFloat(self.interfaz.edtSaturacion)
-        self.interfaz.lblImagen.setPixmap(QtGui.QPixmap("image2.png"))
+        self.interfaz.lblImagen.setPixmap(QtGui.QPixmap("image2.png").scaled(715,529))
         self.interfaz.btnSeleccionar.clicked.connect(self.seleccionar)
         self.interfaz.btnActualizar.clicked.connect(self.actualizar)
         self.ruta="image2.png"
@@ -28,7 +28,7 @@ class Programa(QtWidgets.QMainWindow):
         ruta=QtWidgets.QFileDialog(self).getOpenFileName(caption="Seleccionar imagen",filter="PNG(*.png)")
         if ruta[0][-4:]==".png":
             self.ruta=ruta[0]
-            self.interfaz.lblImagen.setPixmap(QtGui.QPixmap(ruta[0]))
+            self.interfaz.lblImagen.setPixmap(QtGui.QPixmap(ruta[0]).scaled(self.interfaz.lblImagen.geometry().width(),self.interfaz.lblImagen.geometry().height()))
             self.interfaz.edtLuminancia.setText("1")
             self.interfaz.edtSaturacion.setText("1")
         
@@ -58,8 +58,12 @@ class Programa(QtWidgets.QMainWindow):
         im[:,:,:]=np.clip(im[:,:,:]*255,0,255)
         im=im.astype(np.uint8)
         imageio.imwrite('a.png',im)
-        self.interfaz.lblImagen.setPixmap(QtGui.QPixmap("a.png"))
+        self.interfaz.lblImagen.setPixmap(QtGui.QPixmap("a.png").scaled(self.interfaz.lblImagen.geometry().width(),self.interfaz.lblImagen.geometry().height()))
+        print(self.interfaz.lblImagen.geometry().height())
         
+
+    
+    
 if __name__ == "__main__": 
     app=QtWidgets.QApplication(sys.argv)
     programa=Programa()
