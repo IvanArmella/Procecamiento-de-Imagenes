@@ -1,0 +1,1 @@
+Ejecutar TP2.py para iniciar la aplicación.

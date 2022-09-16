@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TP4</class>
+ <widget class="QMainWindow" name="TP4">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1006</width>
+    <height>462</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TP4</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>10</number>
+    </property>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLabel" name="lblImagen">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnSeleccionar">
+            <property name="text">
+             <string>Abrir imagen</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QLabel" name="lblImagen2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QLabel" name="lblModo">
+            <property name="text">
+             <string>Filtro</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cboxModo">
+            <item>
+             <property name="text">
+              <string>Plano 3x3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Plano 5x5</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Plano 7x7</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Bartlett 3x3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Bartlett 5x5</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Bartlett 7x7</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Gaussiano 5x5</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Gaussiano 7x7</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Laplaciano v4 3x3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Laplaciano v8 3x3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Sobel Norte</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Sobel Noreste</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Sobel Este</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Sobel Sureste</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Sobel Sur</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Sobel Suroeste</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Sobel Oeste</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Sobel Noroeste</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Pasabanda</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Pasaalto Laplaciano V4 0.2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Pasaalto Laplaciano V4 0.4</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Pasaalto Laplaciano V8 0.2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Pasaalto Laplaciano V8 0.4</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnFiltrar">
+            <property name="text">
+             <string>Filtrar</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnGuardar">
+            <property name="text">
+             <string>Guardar</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QWidget" name="horizontalWidget" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_6"/>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

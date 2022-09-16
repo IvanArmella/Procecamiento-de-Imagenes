@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Aug 18 02:13:24 2022
-
 @author: Ivan
 """
 import sys
