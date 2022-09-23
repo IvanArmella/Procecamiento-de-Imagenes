@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TP5</class>
+ <widget class="QMainWindow" name="TP5">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>928</width>
+    <height>462</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TP5</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>10</number>
+    </property>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLabel" name="lblImagen">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnSeleccionar">
+            <property name="text">
+             <string>Abrir imagen</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QLabel" name="lblImagen2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QLabel" name="lblModo">
+            <property name="text">
+             <string>Filtro</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cboxModo">
+            <item>
+             <property name="text">
+              <string>Erosión 3x3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Erosión 5x5</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Dilatación 3x3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Dilatación 5x5</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Apertura 3x3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Apertura 5x5</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Cierre 3x3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Cierre 5x5</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Borde Exterior 3x3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Borde Exterior 5x5</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Borde Interior 3x3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Borde Interior 5x5</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Mediana 3x3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Mediana 5x5</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Gradiente 3x3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Gradiente 5x5</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnGuardar">
+            <property name="text">
+             <string>Guardar</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnUtilizar">
+            <property name="text">
+             <string>Utilizar</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

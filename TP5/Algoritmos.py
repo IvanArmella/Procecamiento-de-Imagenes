@@ -62,7 +62,11 @@ def kernelSobel(d):
     elif d=="sureste":
         return np.array((2,1,0,1,0,-1,0,-1,-2)).reshape(3,3)
 
-def convolucionar2(x,kernel):
+def convolucionar2(im,kernel,modo=0):
+        if im.ndim!=2:
+            yiq=getYIQ(im)
+            x=yiq[:,:,0]
+        else: x=im
         r=np.zeros(np.array(x.shape)+np.array(kernel.shape)-1)
         lim=((np.array(r.shape)-np.array(x.shape))/2).astype(int)
         r[lim[0]:lim[0]+x.shape[0],lim[1]:lim[1]+x.shape[1]]=x
@@ -76,37 +80,40 @@ def convolucionar2(x,kernel):
         r[r.shape[0]-lim[0]:r.shape[0],:]=np.tile(aux2,(lim[0],1))
         r[lim[0]:r.shape[0]-lim[0],0:lim[1]]=np.tile(x[:,0],(lim[1],1)).transpose()
         r[lim[0]:r.shape[0]-lim[0],r.shape[1]-lim[1]:r.shape[1]]=np.tile(x[:,x.shape[0]-1],(lim[1],1)).transpose()
-        y=np.zeros(x.shape)   
-        for i in range(x.shape[0]):
-            for j in range(x.shape[1]):
-                y[i,j]=(r[i:i+kernel.shape[0],j:j+kernel.shape[1]]*kernel).sum()
+        y=np.zeros(x.shape)
+        if modo==0:
+            for i in range(x.shape[0]):
+                for j in range(x.shape[1]):
+                    y[i,j]=(r[i:i+kernel.shape[0],j:j+kernel.shape[1]]*kernel).sum()
+        elif modo==1:
+            for i in range(x.shape[0]):
+                for j in range(x.shape[1]):
+                    y[i,j]=r[i:i+kernel.shape[0],j:j+kernel.shape[1]].min()
+        else:
+            for i in range(x.shape[0]):
+                for j in range(x.shape[1]):
+                    y[i,j]=r[i:i+kernel.shape[0],j:j+kernel.shape[1]].max()
+        if im.ndim!=2:
+            yiq[:,:,0]=y
+            y=getRGB(yiq[:,:,0])
         return y
-
+        
 def binarizar(x,u):
-    x[x<u]=0
-    x[x>=u]=0
-    return x
+    r=x.copy()
+    r[r<u]=0
+    r[r>=u]=255
+    return r
     
         
-## Para laplacianos clipear el resultado con 0 y 1 o 0 y 255
-l4=np.array((0,-1,0,-1,4,-1,0,-1,0)).reshape(3,3)
-l8=np.array((-1,-1,-1,-1,8,-1,-1,-1,-1)).reshape(3,3)
-## Pasa altos cortes clipear el resultado con 0 y 1 o 0 y 255
-p402=np.identity(3)+l4*0.2
-p404=np.identity(3)+l4*0.4
-p802=np.identity(3)+l8*0.2
-p804=np.identity(3)+l8*0.4
-##Pasa Banda (convolucionar2(x,kernelGaussiano(3)).clip(0,255)-convolucionar2(x,kernelGaussiano(5)).clip(0,255)).clip(0,1)*255
-#(x+convolucionar2(x,l8).clip(0,255)*0.2).clip(0,255)
-x=getYIQ(imageio.imread("chip_blackwhite.bmp"))[:,:,0]
-r=binarizar(x,0.5)
-#r=convolucionar2(x,np.ones((3,3))/5).clip(0,255)
+
+x=imageio.imread("chip.bmp")
+r=binarizar(x,255*0.7)
 #((convolucionar2(x,np.ones((1,3))/3).clip(0,255)-convolucionar2(x,kernelGaussiano(5)).clip(0,255)).clip(0,1)*255).astype(int)
-#plot.subplot(121)
-#plot.imshow(x,"gray")
-#plot.subplot(122)
-#plot.imshow(r,"gray")
-#plot.show()
+plot.subplot(121)
+plot.imshow(x,"gray")
+plot.subplot(122)
+plot.imshow(r,"gray")
+plot.show()
 
 
 
